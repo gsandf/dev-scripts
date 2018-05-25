@@ -1,0 +1,14 @@
+image: node:10
+
+clone:
+  depth: 10
+
+pipelines:
+  default:
+    - step:
+        caches:
+          - node
+        script:
+          - export branchName="$(git symbolic-ref --short HEAD)"
+          - printf '//registry.npmjs.org/:_authToken=%s\n' "$NPM_TOKEN" >> ~/.npmrc
+          - yarn pipeline
