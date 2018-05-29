@@ -4,5 +4,11 @@
   "main": "index.js",
   "author": "GS&F Devs <mindreactor@gsandf.com> (https://gsandf.com/)",
   "license": "MIT",
-  "bin": "./index.js"
+  "bin": "./index.js",
+  "devDependencies": {
+    "ava": "^0.25.0"
+  },
+  "scripts": {
+    "test": "ava"
+  }
 }
