@@ -6,5 +6,5 @@
   "author": "GS&F Devs <mindreactor@gsandf.com> (https://gsandf.com/)",
   "license": "MIT",
   "private": true,
-  "workspaces": ["configs", "test"]
+  "workspaces": ["configs", "deploy", "test"]
 }
