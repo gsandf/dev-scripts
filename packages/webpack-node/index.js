@@ -1,5 +1,6 @@
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const { dirname, resolve } = require('path');
+const { DefinePlugin } = require('webpack');
 
 const __DEV__ = process.env.NODE_ENV !== 'production';
 
@@ -35,7 +36,7 @@ const sharedConfig = {
   plugins: [
     // Define commonly-used global variables. Note: if you use an eslint config,
     // you will want to set these as global variables there, too.
-    new webpack.DefinePlugin({
+    new DefinePlugin({
       __DEV__
     })
   ],
