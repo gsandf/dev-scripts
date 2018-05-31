@@ -1,7 +1,6 @@
-#!/usr/bin/env node
-const path = require('path');
-const fs = require('fs');
-const { error } = require('./log');
+import fs from 'fs';
+import path from 'path';
+import { error } from './log';
 
 const CONFIG_VERSION = 1;
 
@@ -58,6 +57,11 @@ function main() {
         }
         environments.push(arg);
     }
+  }
+
+  if (environments.length === 0) {
+    error('An environment name is required but none was given.');
+    process.exit(1);
   }
 
   const config = require(configFile);

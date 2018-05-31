@@ -14,7 +14,5 @@ const print = (format, str) => {
   console.log(`${format.join('')}%s${reset}`, str);
 };
 
-module.exports = {
-  warn: s => print([yellow], s),
-  error: s => print([red], s)
-};
+export const warn = s => print([yellow], s);
+export const error = s => print([red], s);

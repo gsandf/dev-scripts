@@ -1,0 +1,32 @@
+{
+  "name": "@gsandf/deploy",
+  "version": "0.1.0",
+  "main": "index.js",
+  "author": "GS&F Devs <mindreactor@gsandf.com> (https://gsandf.com/)",
+  "license": "MIT",
+  "bin": {
+    "deploy": "./index.js"
+  },
+  "ava": {
+    "files": [
+      "src/**/*.test.js"
+    ],
+    "require": [
+      "@babel/register"
+    ]
+  },
+  "scripts": {
+    "build": "babel src --out-dir build --ignore '**/*.test.js,**/testHelpers'",
+    "test": "ava"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.0.0-beta.44",
+    "@babel/core": "7.0.0-beta.44",
+    "@babel/node": "7.0.0-beta.44",
+    "@babel/preset-env": "7.0.0-beta.44",
+    "@babel/preset-stage-1": "7.0.0-beta.44",
+    "@babel/register": "7.0.0-beta.44",
+    "@gsandf/babel-config-node": "0.1.0",
+    "ava": "1.0.0-beta.4"
+  }
+}

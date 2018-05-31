@@ -1,10 +1,16 @@
 {
-  "name": "dev-scripts",
-  "version": "0.1.0",
-  "main": "index.js",
   "repository": "https://github.com/gsandf/dev-scripts",
-  "author": "GS&F Devs <mindreactor@gsandf.com> (https://gsandf.com/)",
   "license": "MIT",
   "private": true,
-  "workspaces": ["configs", "deploy", "test"]
+  "workspaces": ["packages/*"],
+  "scripts": {
+    "clean": "npx rimraf node_modules packages/*/node_modules",
+    "configs": "pushd packages/configs && yarn",
+    "deploy": "pushd packages/deploy && yarn",
+    "reset": "yarn clean && npx rimraf yarn.lock && yarn",
+    "test": "for p in packages/*; do pushd $p && yarn test & popd; done; wait"
+  },
+  "devDependencies": {
+    "rimraf": "^2.6.2"
+  }
 }
