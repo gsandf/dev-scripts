@@ -162,11 +162,8 @@ PublishScripts/
 # NuGet Packages
 *.nupkg
 # The packages folder can be ignored because of Package Restore
-**/packages/*
 # except build/, which is used as an MSBuild target.
-!**/packages/build/
 # Uncomment if necessary however generally it will be regenerated when needed
-#!**/packages/repositories.config
 # NuGet v3's project.json files produces more ignoreable files
 *.nuget.props
 *.nuget.targets
@@ -304,6 +301,10 @@ logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Project built files
+dist/
+build/
 
 # Runtime data
 pids
