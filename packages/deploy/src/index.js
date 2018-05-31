@@ -64,7 +64,9 @@ function main() {
     process.exit(1);
   }
 
-  const config = require(configFile);
+  // __non_webpack_require__ allows dynamically requiring files at runtime
+  // instead of bundling them.
+  const config = __non_webpack_require__(configFile);
 
   // Error if configuration version isn't compatible with CLI
   if (config.version !== CONFIG_VERSION) {
