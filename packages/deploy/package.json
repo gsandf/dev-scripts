@@ -10,6 +10,7 @@
     "deploy": "./dist/deploy.js"
   },
   "ava": {
+    "cache": false,
     "files": [
       "src/**/*.test.js"
     ],
