@@ -2,9 +2,8 @@ import fs from 'fs';
 import { resolve } from 'path';
 import meow from 'meow';
 import { fatal } from './log';
+import dynamicRequire from './dynamicRequire';
 import deploy from '.';
-
-const CONFIG_VERSION = 1;
 
 const cli = meow(
   `
@@ -29,10 +28,11 @@ const cli = meow(
   }
 );
 
-const environments = cli.input;
+const environment = cli.input.join(' ');
 const { config } = cli.flags;
 const configFile = resolve(config);
 
+// Test if given configuration file exists.
 try {
   fs.accessSync(config);
 } catch (e) {
@@ -41,4 +41,12 @@ try {
   );
 }
 
-deploy(environments, configFile);
+const options = dynamicRequire(configFile);
+
+// It's an error if no environment is listed
+if (environment.length === 0) {
+  fatal('An environment name is required but none was given.');
+}
+
+// Deploy given environment
+deploy(environment, options);

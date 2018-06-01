@@ -16,11 +16,11 @@ const run = args =>
   });
 
 test('should throw when no environment given', async t => {
-  const { stderr } = await run([...testArguments]);
+  const { stderr } = await run(testArguments);
   t.regex(stderr, /environment name is required/i);
 });
 
-test('should throw when no config file given', async t => {
+test('should throw when config file not found', async t => {
   const { stderr } = await run(['-c', './blah.js']);
   t.regex(stderr, /could not find.*?blah\.js/i);
 });
@@ -32,7 +32,9 @@ test('should show help', async t => {
   t.regex(stdout, /examples/i);
 });
 
-test.todo('should accept config file');
-test.todo('should show error if config file not found');
-test.todo('should show error for incompatible versions');
-test.todo('should run deployment based on configuration file');
+test('should deploy valid config', async t => {
+  const { stderr, stdout } = await run([...testArguments, 'test']);
+  console.log(stdout);
+  console.error(stderr);
+  t.regex(stdout, /isCool/);
+});
