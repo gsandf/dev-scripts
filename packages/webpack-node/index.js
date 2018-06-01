@@ -19,11 +19,11 @@ const sharedConfig = {
   entry: './src/index.js',
 
   output: {
-    filename: 'server.bundle.js',
+    filename: 'server.js',
     path: resolve(dirname('index.js'), 'dist'),
     // Use a target that's natively compatible with Node.js
     libraryTarget: 'commonjs2',
-    sourceMapFilename: 'server.bundle.js.map'
+    sourceMapFilename: 'server.js.map'
   },
 
   mode: __DEV__ ? 'development' : 'production',
@@ -34,6 +34,12 @@ const sharedConfig = {
   },
 
   plugins: [
+    // Add a "shebang" so the built file can be executed from the terminal.
+    new BannerPlugin({
+      banner: '#!/usr/bin/env node',
+      raw: true
+    }),
+
     // Define commonly-used global variables. Note: if you use an eslint config,
     // you will want to set these as global variables there, too.
     new DefinePlugin({
