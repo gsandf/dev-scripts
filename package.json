@@ -2,7 +2,9 @@
   "repository": "https://github.com/gsandf/dev-scripts",
   "license": "MIT",
   "private": true,
-  "workspaces": ["packages/*"],
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "clean": "npx rimraf node_modules packages/*/node_modules",
     "configs": "pushd packages/configs && yarn",

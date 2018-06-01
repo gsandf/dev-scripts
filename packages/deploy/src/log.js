@@ -1,18 +1,31 @@
-const reset = '\x1b[0m';
+import figures from 'figures';
+import { Signale } from 'signale';
+import defaultTypes from 'signale/types';
 
-const underline = '\x1b[4m';
-const red = '\x1b[31m';
-const black = '\x1b[30m';
-const green = '\x1b[32m';
-const yellow = '\x1b[33m';
-const blue = '\x1b[34m';
-const magenta = '\x1b[35m';
-const cyan = '\x1b[36m';
-const white = '\x1b[37m';
-
-const print = (format, str) => {
-  console.log(`${format.join('')}%s${reset}`, str);
+const options = {
+  stream: process.stderr,
+  types: {
+    fatal: {
+      badge: figures.cross,
+      color: 'red',
+      label: 'error'
+    }
+  }
 };
 
-export const warn = s => print([yellow], s);
-export const error = s => print([red], s);
+const fatalLogger = new Signale(options).fatal;
+
+/**
+ * Logs fatal messages and forces app to stop
+ * @param  {String|Object|Error|Array} msg - Message to log. See https://github.com/klauscfhq/signale#api
+ */
+const fatal = (...msg) => {
+  fatalLogger(...msg);
+  process.exit(1);
+};
+
+// Re-export loggers from Signale
+export * from 'signale';
+
+// Extend with loggers that should write to stderr
+export { fatal };

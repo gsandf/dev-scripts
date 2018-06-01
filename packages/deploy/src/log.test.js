@@ -1,10 +1,18 @@
 import test from 'ava';
-import { warn, error } from './log';
+import { error, info, fatal, success } from './log';
 
-test('should have a warn function', t => {
-  t.is(typeof warn, 'function');
+test('should export error logger', t => {
+  t.is(typeof error, 'function');
 });
 
-test('should have an error function', t => {
-  t.is(typeof error, 'function');
+test('should export info logger', t => {
+  t.is(typeof info, 'function');
+});
+
+test('should export fatal logger', t => {
+  t.is(typeof fatal, 'function');
+});
+
+test('should export success logger', t => {
+  t.is(typeof success, 'function');
 });

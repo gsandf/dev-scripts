@@ -1,6 +1,7 @@
 {
   "name": "@gsandf/deploy",
   "version": "0.1.0",
+  "description": "🚀 Deploy projects to servers using one JSON config",
   "module": "src/index.js",
   "main": "dist/index.js",
   "author": "GS&F Devs <mindreactor@gsandf.com> (https://gsandf.com/)",
@@ -31,5 +32,10 @@
     "ava": "1.0.0-beta.4",
     "webpack": "^4.10.2",
     "webpack-cli": "^2.1.4"
+  },
+  "dependencies": {
+    "figures": "^2.0.0",
+    "meow": "^5.0.0",
+    "signale": "^1.1.0"
   }
 }
