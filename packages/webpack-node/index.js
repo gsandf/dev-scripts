@@ -1,6 +1,6 @@
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const { dirname, resolve } = require('path');
-const { DefinePlugin } = require('webpack');
+const { BannerPlugin, DefinePlugin } = require('webpack');
 
 const __DEV__ = process.env.NODE_ENV !== 'production';
 
