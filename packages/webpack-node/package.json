@@ -1,6 +1,6 @@
 {
   "name": "@gsandf/webpack-node",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "main": "index.js",
   "author": "GS&F Devs <mindreactor@gsandf.com> (https://gsandf.com/)",
   "license": "MIT",
