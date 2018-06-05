@@ -1,18 +1,14 @@
 module.exports = {
-  presets: [
-    [
-      '@babel/preset-stage-1',
-      {
-        decoratorsLegacy: true
-      }
-    ],
-    [
-      '@babel/preset-env',
-      {
+    presets: [
+      ['env', {
         targets: {
           node: 'current'
         }
-      }
+      }],
+      'stage-2'
+    ],
+    plugins: [
+      'transform-class-properties',
+      'transform-object-rest-spread'
     ]
-  ]
 };
